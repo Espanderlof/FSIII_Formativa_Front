@@ -9,7 +9,7 @@ import { AlertService } from './alert.service';
     providedIn: 'root'
 })
 export class LibroService {
-    private baseUrl = 'http://localhost:8080/api/libros';
+    private baseUrl = 'http://localhost:8081/api/libros';
 
     constructor(
         private http: HttpClient,
