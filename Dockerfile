@@ -13,7 +13,7 @@ RUN npm install
 COPY . .
 
 # Construir la aplicación
-RUN npm run build
+RUN npm run build --prod
 
 # Etapa de producción
 FROM nginx:alpine
@@ -23,7 +23,7 @@ RUN rm -rf /usr/share/nginx/html/*
 
 # Copiar los archivos construidos
 COPY --from=builder /app/dist/app-libros/browser/* /usr/share/nginx/html/
-
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Crear directorio para assets si es necesario
 RUN mkdir -p /usr/share/nginx/html/assets
 
