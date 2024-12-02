@@ -1,29 +1,30 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
 
-describe('AppComponent', () => {
+describe('pruebas del componente principal', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent],
+      imports: [AppComponent, RouterModule],
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('deberia crear la aplicacion', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'AppLibros' title`, () => {
+  it('deberia tener el titulo biblioteca', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('AppLibros');
+    expect(app.title).toEqual('biblioteca');
   });
 
-  it('should render title', () => {
+  it('deberia renderizar la barra de navegacion con el texto biblioteca', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, AppLibros');
+    expect(compiled.querySelector('.navbar-brand')?.textContent).toContain('Biblioteca');
   });
 });
